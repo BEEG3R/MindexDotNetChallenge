@@ -12,5 +12,23 @@ namespace challenge.Models
             this.salary = salary;
             this.effectiveDate = effectiveDate;
         }
+
+        public string EmployeeId {
+            get {
+                return this.employee.EmployeeId;
+            }
+        }
+
+        public int Salary {
+            get {
+                return this.salary;
+            }
+        }
+
+        public DateTime EffectiveDate {
+            get {
+                return this.effectiveDate;
+            }
+        }
     }
 }
