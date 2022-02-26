@@ -4,9 +4,9 @@ using challenge.Repositories;
 namespace challenge.Services
 {
     public class CompensationService : ICompensationService {
-        private readonly CompensationRepository compensationRepository;
+        private readonly ICompensationRepository compensationRepository;
 
-        public CompensationService(CompensationRepository compensationRepository) {
+        public CompensationService(ICompensationRepository compensationRepository) {
             this.compensationRepository = compensationRepository;
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace challenge.Models
 {
@@ -12,6 +13,9 @@ namespace challenge.Models
             this.salary = salary;
             this.effectiveDate = effectiveDate;
         }
+
+        [Key]
+        public int Id { get; set; }
 
         public string EmployeeId {
             get {
