@@ -25,12 +25,21 @@ namespace code_challenge
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<EmployeeContext>(options =>
+        public void ConfigureServices(IServiceCollection services) {
+            var options = new DbContextOptionsBuilder<EmployeeContext>()
+                          .UseInMemoryDatabase("EmployeeDB")
+                          .Options;
+            services.AddSingleton(x => new EmployeeContext(options));
+            /*
+             
+            AJF changed DBContext instantiation due to a bug where database changes were not persisted.
+            Running this project "out of the box" would always return DirectReports: null for every employee. 
+
+             services.AddDbContext<EmployeeContext>(options =>
             {
                 options.UseInMemoryDatabase("EmployeeDB");
             });
+            */
             services.AddScoped<IEmployeeRepository,EmployeeRespository>();
             services.AddTransient<EmployeeDataSeeder>();
             services.AddScoped<IEmployeeService, EmployeeService>();
