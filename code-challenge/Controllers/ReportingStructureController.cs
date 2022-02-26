@@ -17,7 +17,6 @@ namespace challenge.Controllers
         /// Get the number of reports for a given employee.
         /// </summary>
         /// <param name="id">The EmployeeId for the employee to query reports for.</param>
-        /// <returns></returns>
         [HttpGet("{id}", Name = "getReportingStructureByEmployeeId")]
         public IActionResult GetReportStructure(string id) {
             Employee employee = this.employeeService.GetById(id);
