@@ -19,7 +19,7 @@ namespace challenge.Repositories
         }
 
         public Compensation GetByEmployeeId(string id) {
-            return this.employeeContext.Compensations.FirstOrDefault(c => c.EmployeeId == id);
+            return this.employeeContext.Compensations.FirstOrDefault(c => c.Employee.EmployeeId == id);
         }
 
         public Task SaveAsync() {
